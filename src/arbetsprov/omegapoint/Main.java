@@ -19,7 +19,6 @@ public class Main {
         vcs.add(new SocialSecurityCheck());
         vcs.add(new RegNrCheck());
         ValidityChecker vc = new ValidityChecker(vcs);
-        vc.check();
         try (Scanner sc = new Scanner(new File("testInput/test_input"))){
             while (sc.hasNextLine()){
                 vc.setInput(sc.nextLine());
