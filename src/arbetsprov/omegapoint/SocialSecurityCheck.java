@@ -19,6 +19,7 @@ public class SocialSecurityCheck extends ValidityCheck {
             if (input.length() == 12)
                 input = input.substring(2);
             int controlSum = calculateControlSum(input);
+
             return controlSum == controlValue;
         }
         return false;
@@ -29,7 +30,8 @@ public class SocialSecurityCheck extends ValidityCheck {
      * input format yymmddxxxx
      */
     private int calculateControlSum(String input){
-        assert (input.length()==10);
+        if (input.length()!=10)
+            return -1;
         int controlSum = 0;
         for (int i = 0; i < input.length()-1; i++) {
             int a = Integer.parseInt(input.substring(i, i + 1));
